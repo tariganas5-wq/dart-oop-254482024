@@ -1,49 +1,36 @@
-# Dart OOP Assignment: Kigali Bus Card
+Dart OOP Assignment: Kigali Bus Card
 
-**Name:** Tarig Anas  
-**Student ID:** 254482024
+Name: Tarig Anas
+Reg num: 254482024
 
-## My Numbers
+My Numbers
 
-- D = 24
-- L = 4
-- Starting balance = 1240 RWF
-- Bus fare = 224 RWF
-- Student discount = 14%
+* D = 24
+* L = 4
+* Starting balance = 1240 RWF
+* Bus fare = 224 RWF
+* Student discount = 14%
 
-## Part 1: BusCard
+Part 1: BusCard
 
-The balance does not have a setter because it should only be changed through controlled methods such as topUp() and pay(). This prevents invalid balance changes.
+I did not add a setter for balance because I want to change it only through topUp() and pay(). This helps prevent invalid balance changes.
 
-## Part 2: StudentCard
+Part 2: StudentCard
 
-The `~/` operator performs integer division and returns an integer instead of a decimal number.
+The ~/ operator divides two numbers and returns an integer.
 
 For example:
 
-`237 * 17 ~/ 100 = 40`
+237 * 17 ~/ 100 = 40
 
-Using `/` would return `40.29`.
-### How StudentCard works
+It returns 40 instead of 40.29.
 
-StudentCard extends BusCard, so it inherits its properties and methods.
+StudentCard extends BusCard and uses super to access the parent class.
 
-The super keyword calls the parent class constructor and methods.
+The student discount is 31 RWF, so the final fare is 193 RWF.
 
-The pay() method calculates the discount first, then calls super.pay() to deduct the discounted fare from the balance.
+Part 3: Main Output
 
-### How my personal numbers are used
-
-My starting balance is 1240 RWF.
-My bus fare is 224 RWF.
-My student discount is 14%.
-
-The discount is 31 RWF after integer division.
-The final student fare is 193 RWF.
-
-## Part 3: Main Output
-
-```text
 Error: name too short
 Owner: Tarig Anas | Balance: 1240 RWF
 Owner: Tarig Anas | Balance: 1240 RWF
@@ -56,53 +43,35 @@ Student discount: 31 RWF
 Paid 193 RWF
 Owner: Tarig Anas | Balance: 1047 RWF
 Student card: 14% off
-```
 
-## Part 4: Bug Hunt
+Part 4: Bug Hunt
 
-The five bugs and their corrections:
+I found and fixed these five bugs:
 
-1. The private fields were not initialized. I initialized `_brand` and `_battery`.
-2. The battery setter was missing. I added a setter that accepts values from 0 to 100.
-3. The parent class did not have a `restart()` method. I added it so the child class can override it.
-4. The SmartPhone constructor was missing the call to the parent constructor. I added `super(brand, battery)`.
-5. The battery getter was called like a method. I corrected `p.battery()` to `p.battery`.
+1. Initialized _brand and _battery.
+2. Added a battery setter to accept values from 0 to 100.
+3. Added restart() to the Phone class.
+4. Added super(brand, battery) to the SmartPhone constructor.
+5. Changed p.battery() to p.battery because battery is a getter.
 
-The line `Phone p = new Phone('Tecno', 50);` is correct because using `new` is allowed in Dart.
-### Why these corrections are important
+The use of new in Phone p = new Phone('Tecno', 50); is correct in Dart.
 
-- Initializing private fields prevents uninitialized variable errors.
-- The battery setter protects the battery value from invalid numbers.
-- The restart() method allows SmartPhone to override the parent method.
-- The super constructor initializes the inherited Phone properties.
-- A getter is accessed as a property, not as a method.
+Output:
 
-### Part 4 Output
-
-```text
 100
-```
 
-## Part 5: Prediction
+Part 5: Prediction
 
-My prediction before running the program:
+My prediction was:
 
-```text
 1
 5
-```
 
-### Explanation
+The negative value is rejected, so the first output is 1. BigBag adds two items each time, so the second output is 5.
 
-The first Bag has 1 item because the negative value is rejected by the setter.
+Actual output:
 
-BigBag adds 2 items each time its add() method is called. After two calls, it has 4 items. Then one more item is added, making the final value 5.
-
-### Actual Output
-
-```text
 1
 5
-```
 
 My prediction was correct.
