@@ -24,6 +24,22 @@ For example:
 `237 * 17 ~/ 100 = 40`
 
 Using `/` would return `40.29`.
+### How StudentCard works
+
+StudentCard extends BusCard, so it inherits its properties and methods.
+
+The super keyword calls the parent class constructor and methods.
+
+The pay() method calculates the discount first, then calls super.pay() to deduct the discounted fare from the balance.
+
+### How my personal numbers are used
+
+My starting balance is 1240 RWF.
+My bus fare is 224 RWF.
+My student discount is 14%.
+
+The discount is 31 RWF after integer division.
+The final student fare is 193 RWF.
 
 ## Part 3: Main Output
 
