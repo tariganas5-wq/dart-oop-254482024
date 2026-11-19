@@ -69,6 +69,13 @@ The five bugs and their corrections:
 5. The battery getter was called like a method. I corrected `p.battery()` to `p.battery`.
 
 The line `Phone p = new Phone('Tecno', 50);` is correct because using `new` is allowed in Dart.
+### Why these corrections are important
+
+- Initializing private fields prevents uninitialized variable errors.
+- The battery setter protects the battery value from invalid numbers.
+- The restart() method allows SmartPhone to override the parent method.
+- The super constructor initializes the inherited Phone properties.
+- A getter is accessed as a property, not as a method.
 
 ### Part 4 Output
 
